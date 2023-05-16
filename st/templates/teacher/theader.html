@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href ="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    <main>
+        {% comment %} welcome  {{user.first_name}}</br>
+        <a href="/logoutmain">logout</a></br> {% endcomment %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="margin-right:1px;margin-left:1px">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/">{{user.first_name|capfirst}} {{user.last_name|capfirst}} (<i class="fa-sharp fa-solid fa-person-chalkboard"></i> Teachers)</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarColor01"  style="margin-right:10px">
+                <ul class="navbar-nav me-auto" style="margin-left:47%;">
+                  <li class="nav-item" style="margin:1px">
+                    <a class="nav-link {%if request.path == '/'%} active {%endif%}" href="/" style="width: 120px;font-size:18px"><i class="fa-solid fa-user"></i>Profile</a>
+                  </li>  
+                  <li class="nav-item" style="width: 120px;font-size:12px;margin:1px">
+                    <a class="nav-link  {%if request.path == '/allstudent/'%} active {%endif%} " href="/allstudent" style="width: 120px;font-size:15px"><i class="fa-solid fa-graduation-cap"></i>All students
+                      <span class="visually-hidden">(current)</span>
+                    </a>
+                  </li>
+                  <li class="nav-item" style="margin:1px">
+                    <a class="nav-link {%if request.path == '/searchstudent/'%} active {%elif request.path == '/searchstudent2/'%} active {%endif%}" href="/searchstudent" style="width: 90px;font-size:15px"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
+                  </li>
+                  <li class="nav-item dropdown" style="margin:1px">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:19px"><i class="fa-solid fa-circle-info"></i>Other</a>
+                    <div class="dropdown-menu" >
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Separated link</a>
+                    </div>
+                  </li>               
+                  <li class="nav-item" style="margin:1px">
+                    <a class="nav-link" href="/logoutmain" style="width: 120px;font-size:19px"><i class="fa-solid fa-right-from-bracket"></i>logout</a>
+                  </li>
+                  
+                </ul>
+                
+              </div>
+            </div>
+          </nav>
+    </main>
+    {%block content %}
+
+    {%endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

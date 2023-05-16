@@ -1,0 +1,38 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{%block content%}
+{%if not data %}
+<marquee  scrollamount= '30' behavior='scroll'><span class="badge bg-danger fa-lg" style="margin:20%;">No Data Available</span></marquee>
+{%endif%}
+
+
+{% for i in data %}
+<table class="table table-hover" style="margin-top:20px;margin-left:30px;width:80%;">
+  <thead>
+    <tr>
+      
+      <th scope="col">Subject</th>
+      <th scope="col">Value</th>
+    
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr class="table-dark">
+      <td>Advisor: </td>
+      <td>{{i.fullname|capfirst}}</td>
+    </tr>
+    <tr class="table-dark">
+      <td>Id: </td>
+      <td>{{i.teachers_id}}</td>
+    </tr>
+    <tr class="table-dark">
+      <td>Department </td>
+      <td>{{i.department}}</td>
+    </tr>
+  </tbody>
+</table>
+{%endfor%}
+
+{%endblock %}

@@ -1,0 +1,51 @@
+{% extends 'teacher/theader.html' %}
+{% load static %}
+
+{%block content%}
+<span class="badge bg-success " style="margin-top:20px;margin-left:30px;height:40px;font-size:25px;">Search Results</span>
+{%for i in data%}
+<table class="table table-hover" style="margin-top:20px;margin-left:30px;width:80%;">
+    <thead>
+      <tr>
+        
+        <th scope="col"><i class="fa-solid fa-graduation-cap"></i>Subject</th>
+        <th scope="col">Value</th>
+      
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-dark">
+        <td>Name: </td>
+        <td>{{i.name|capfirst}}</td>
+      </tr>
+      <tr class="table-dark">
+        <td>Roll </td>
+        <td>{{i.roll}}</td>
+      </tr>
+      <tr class="table-dark">
+        <td>CGPA </td>
+        <td>{{i.cgpa}}</td>
+      </tr>
+      <tr class="table-dark">
+        <td>Advisor</td>
+        <td>{{i.advisor}}</td>
+      </tr>
+      <tr class="table-active">
+        <td>Delete & Update <i class="fa-sharp fa-solid fa-diamond-turn-right fa-lg"></i></td>
+        <td>
+          <form action="{% url 'DELETE' i.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger" style="margin-left:2%;font-size:13px"><i class="fa-solid fa-trash"> </i>Delete-{{i.username}}</button>
+            {% comment %} <button type="submit"><i class="fa-solid fa-trash"></i>Delete {{i.username}}</button> {% endcomment %}
+          </form>
+          <form action="{% url 'EDIT' i.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-info" style="margin-left:2%;font-size:13px"><i class="fa-solid fa-pen"></i>Edit</button>
+            {% comment %} <button type="submit"><i class="fa-solid fa-trash"></i>Delete {{i.username}}</button> {% endcomment %}
+          </form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  {%endfor%}
+{%endblock %}
