@@ -20,7 +20,7 @@
         <a href="/signup"><button type="button" class="btn btn-secondary">Signup</button></a> {% endcomment %}
        
         <div style="height:600px;width:100%;background-color:grey">
-          <h1>please login to continue</h1>
+       
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-top:20px;margin-left: 10%;margin-right: 10%;border-radius:6px;border-style:double;border-color:lightblue">
           <div class="container-fluid">
             
@@ -45,8 +45,8 @@
           </div>
         </nav>
    
-        <marquee  scrollamount= '30' behavior='Alternate'>
-<div style="display:flex;">
+        {% comment %} <marquee  scrollamount= '30' behavior='Alternate'> {% endcomment %}
+{% comment %} <div style="display:flex;">
         <div class="card text-white bg-primary mb-3" style="max-width: 20rem; margin-top:20px;margin-left:10%">
           <div class="card-header">Team Flowers</div>
           <div class="card-body">
@@ -62,12 +62,23 @@
             <h4 class="card-title">Members</h4>
             <p class="card-text">Mamun</br>Rayhan</br>Rafi</p>
           </div>
-        </div>
+        </div> {% endcomment %}
       {% comment %} div end for flex {% endcomment %}
-      </div>
-    </marquee>
-      {% comment %} this div is for grey colour end {% endcomment %}
+
+      <div  class="d-flex justify-content-center">
+        <div class="card text-white bg-primary mb-3 text-center mt-4 mx-auto" style="max-width: 40rem; width: 100%;">
+          <div class="card-header">Team Flowers</div>
+          <div class="card-body">
+            <h4 class="card-title">Members</h4>
+            <p class="card-text">Mamun</br>Rayhan</br>Rafi</p>
+          </div>
+        </div>
     </div>
+      </div>
+    {% comment %} </marquee> {% endcomment %}
+      {% comment %} this div is for grey colour end {% endcomment %}
+
+    
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
